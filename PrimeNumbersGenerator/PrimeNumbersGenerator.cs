@@ -2,30 +2,34 @@
 {
     public class PrimeNumbersGenerator
     {
-        public int[] Generate(int Length)
+        public long[] Generate(int Length)
         {
-            var result = new int[Length];
+            var result = new long[Length];
             int index = 0;
-            int chenkNum = 2;
+            long checkNum = 2;
             while (index < Length)
             {
-                bool isPrime = true;
-                for (int i = 2; i <= Math.Sqrt(chenkNum); i++)
-                    if (chenkNum % i == 0)
-                    {
-                        {
-                            isPrime = false;
-                            break;
-                        }
-                    }
-                if (isPrime)
+                if (isPrime(checkNum))
                 {
-                result[index++] = chenkNum;
+                    result[index++] = checkNum;
                 }
-                chenkNum++;
+                checkNum++;
             }
-
             return result;
+        }
+
+        private bool isPrime(long num)
+        {
+            bool isPrime = true;
+            for (int i = 2; i <= Math.Sqrt(num); i++)
+                if (num % i == 0)
+                {
+                    {
+                        isPrime = false;
+                        break;
+                    }
+                }
+            return isPrime;
         }
     }
 }

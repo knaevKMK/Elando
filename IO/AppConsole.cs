@@ -2,9 +2,23 @@
 {
     public class AppConsole
     {
-        public static void Print(int[] args)
+        public static void Print(long[,] args)
         {
-            Console.WriteLine(string.Join(" " , args));
+            var lenght = Math.Sqrt(args.Length);
+            Console.Write("\t");
+            for (int col = 1; col < lenght; col++)
+            {
+                Console.Write($"{args[0, col]}\t");
+            }
+            Console.WriteLine();
+            for (int row = 1; row < lenght; row++)
+            {
+                for (int col = 0; col < lenght; col++)
+                {
+                    Console.Write($"{args[row, col]}\t");
+                }
+                Console.WriteLine();
+            }
         }
 
         private int num;

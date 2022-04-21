@@ -12,7 +12,7 @@ int n = console.Read();
 var primeNUmbers = primeNumbersGenerator.Generate(n);
 var matrix = multiplicationTabelGenerator.Generate(primeNUmbers);
 
-AppConsole.Print(primeNUmbers);
+AppConsole.Print(matrix);
 
 
 
