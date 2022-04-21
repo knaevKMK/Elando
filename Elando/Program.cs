@@ -7,12 +7,12 @@ var primeNumbersGenerator = new PrimeNumbersGenerator();
 var multiplicationTabelGenerator = new MultiplicationTableGenerator();
 
 
-int n = console.Read();
+int n = console.ReadNum();
 
 var primeNUmbers = primeNumbersGenerator.Generate(n);
 var matrix = multiplicationTabelGenerator.Generate(primeNUmbers);
 
-AppConsole.Print(matrix);
+AppConsole.PrintMatrix(matrix);
 
 
 
