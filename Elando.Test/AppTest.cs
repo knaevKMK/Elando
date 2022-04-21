@@ -1,15 +1,13 @@
-using IO;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 namespace Elando.Test
 {
+    using IO;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     [TestClass]
     public class AppTest
     {
-      
-        [TestMethod]
-        public void TestMethod1()
-        {
-        }
+        private readonly AppConsole console = new();
+
+
+
     }
 }
