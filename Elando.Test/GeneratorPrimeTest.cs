@@ -1,7 +1,7 @@
 ﻿namespace Elando.Test
 {
     using System;
-    using System.Linq;
+
     using Generator;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
