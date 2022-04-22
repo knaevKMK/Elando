@@ -1,17 +1,17 @@
 ﻿namespace Elando.Test
 {
+    using System;
+
     using Generator;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     public class GeneratorMultiplicationTableTest
     {
         private readonly PrimeNumbersGenerator primeNumbersGenerator = new();
         private readonly MultiplicationTableGenerator multiplicationTabelGenerator = new();
 
-        private readonly long[] primeResult2 = { 2, 3 };
-        private readonly long[] primeResult3 = { 2, 3, 5 };
-        private readonly long[] primeResult4 = { 2, 3, 5, 7 };
-
+     
         [TestMethod]
         [DataRow(2)]
         [DataRow(3)]
@@ -21,7 +21,7 @@
             var primes = primeNumbersGenerator.Generate(validInput);
             var result = multiplicationTabelGenerator.Generate(primes);
             Assert.IsInstanceOfType(result, typeof(long[,]));
-
+            Assert.IsTrue(result.Length == Math.Pow((validInput + 1),2));
         }
     }
 }
