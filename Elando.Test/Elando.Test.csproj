@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Elando\Elando.csproj" />
     <ProjectReference Include="..\IO\IO.csproj" />
     <ProjectReference Include="..\PrimeNumbersGenerator\Generator.csproj" />
   </ItemGroup>

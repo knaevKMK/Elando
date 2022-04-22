@@ -1,6 +1,7 @@
 ﻿namespace Elando.Test
 {
     using System;
+
     using Generator;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -14,7 +15,7 @@
         [DataRow(new long[] { -2, -7 }, "result2")]
         [DataRow(new long[] { 0, -2, 5 }, "result3")]
         [DataRow(new long[] { 2, 3, 5, 7 }, "result4")]
-        public void GetMultiplicaitonTable_InputValidNumbers_Return_ValidResult(long[] input, string result)
+        public void Generate_InputValidNumbers_Return_ValidResult(long[] input, string result)
         {
             var testResult = multiplicationTabelGenerator.Generate(input);
             var expectedResult = getResult(result);
@@ -37,9 +38,8 @@
         [DataRow(new long[] { 0, 0, 0 })]
         [DataRow(new long[] { -2, -3, -5, -7 })]
         [DataRow(new long[] { 1, 4, 6, 8 })]
-        [DataRow(new long[] { 2, 3, 5 })]
         [DataRow(new long[] { 2, 3, 5, 7, 11, 13, 17 })]
-        public void GetMultiplicaitonTable_InputValidNumbers_SetValidMatrixFormat(long[] input)
+        public void Generate_InputValidNumbers_SetValidMatrixFormat(long[] input)
         {
             var result = multiplicationTabelGenerator.Generate(input);
             Assert.IsInstanceOfType(result, typeof(long[,]));
@@ -47,7 +47,7 @@
         }
 
         [TestMethod]
-        public void GetMultiplicaitonTable_InputEmptyPrimes_Return_EmptyMatrix()
+        public void Generate_InputEmptyPrimes_Return_EmptyMatrix()
         {
             var result = multiplicationTabelGenerator.Generate(Array.Empty<long>());
             Assert.IsInstanceOfType(result, typeof(long[,]));
