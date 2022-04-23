@@ -23,8 +23,7 @@ N = 4
 <br/>
 
 ## App use 
-***
-### Prime Algorithm: 
+#### Prime Algorithm: 
 ``` 
             bool isPrime = true;
             for (int i = 2; i <= Math.Sqrt(num); i++)
@@ -43,6 +42,7 @@ N = 4
     <b><a href="#----">↥ back to top</a></b>
 </div>
 <br/>
+
 ## Built With:
  - Console Applicaion net6.0
  - MSTest
