@@ -16,7 +16,8 @@ Example output:
 
 App use 
 ## Prime Algorithm: 
-``` bool isPrime = true;
+``` 
+            bool isPrime = true;
             for (int i = 2; i <= Math.Sqrt(num); i++)
                 if (num % i == 0)
                 {
