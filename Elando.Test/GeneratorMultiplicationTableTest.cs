@@ -17,7 +17,7 @@
         [DataRow(new long[] { 2, 3, 5, 7 }, "result4")]
         public void Generate_InputValidNumbers_Return_ValidResult(long[] input, string result)
         {
-            var testResult = multiplicationTabelGenerator.Generate(input);
+            var testResult = MultiplicationTableGenerator.Generate(input);
             var expectedResult = getResult(result);
             CollectionAssert.AreEqual(testResult, expectedResult);
         }
@@ -41,7 +41,7 @@
         [DataRow(new long[] { 2, 3, 5, 7, 11, 13, 17 })]
         public void Generate_InputValidNumbers_SetValidMatrixFormat(long[] input)
         {
-            var result = multiplicationTabelGenerator.Generate(input);
+            var result = MultiplicationTableGenerator.Generate(input);
             Assert.IsInstanceOfType(result, typeof(long[,]));
             Assert.IsTrue(result.Length == Math.Pow((input.Length + 1), 2));
         }
@@ -49,7 +49,7 @@
         [TestMethod]
         public void Generate_InputEmptyPrimes_Return_EmptyMatrix()
         {
-            var result = multiplicationTabelGenerator.Generate(Array.Empty<long>());
+            var result = MultiplicationTableGenerator.Generate(Array.Empty<long>());
             Assert.IsInstanceOfType(result, typeof(long[,]));
             Assert.IsTrue(result.Length == 1);
         }

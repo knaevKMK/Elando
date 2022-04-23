@@ -9,12 +9,9 @@
            
             PrintRow(ref args,ref lenght, 0, 1);
            
-            Console.Write("\n");
             for (int row = 1; row < lenght; row++)
             {
                 PrintRow(ref args,ref lenght, row, 0);
-              
-                Console.Write("\n");
             }
         }
 
@@ -24,6 +21,7 @@
             {
                 Console.Write($"{args[row, col]}\t");
             }
+            Console.Write("\n");
         }
 
 
