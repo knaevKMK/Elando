@@ -8,7 +8,7 @@
     [TestClass]
     public class GeneratorPrimeTest
     {
-        private readonly PrimeNumbersGenerator primeNumbersGenerator = new();
+        private readonly NumbersGenerator primeNumbersGenerator = new();
 
         [TestMethod]
         [DataRow(3, new long[] { 2, 3, 5 })]

@@ -6,33 +6,38 @@
         {
             var lenght = Math.Sqrt(args.Length);
             Console.Write($"\nResult is:\n\n\t");
-
-            for (int col = 1; col < lenght; col++)
-            {
-                Console.Write($"{args[0, col]}\t");
-            }
+           
+            PrintRow(ref args,ref lenght, 0, 1);
+           
             Console.Write("\n");
             for (int row = 1; row < lenght; row++)
             {
-                for (int col = 0; col < lenght; col++)
-                {
-                    Console.Write($"{args[row, col]}\t");
-                }
+                PrintRow(ref args,ref lenght, row, 0);
+              
                 Console.Write("\n");
             }
         }
+
+        private static void PrintRow(ref long[,] args,ref double lenght, int row, int start)
+        {
+            for (int col = start; col < lenght; col++)
+            {
+                Console.Write($"{args[row, col]}\t");
+            }
+        }
+
 
         private int num;
         public int ReadNum()
         {
             Console.Write("Insert valid positive number: ");
             string input = Console.ReadLine();
-            Validate(input ?? "");
+            ValidateInput(input ?? "");
 
             return num;
         }
 
-        private void Validate(string input)
+        private void ValidateInput(string input)
         {
             if (!int.TryParse(input.Trim(), out num) || num <= 0)
             {
