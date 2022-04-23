@@ -27,6 +27,13 @@ App use
                 }
             return isPrime;
 ```
+
+## App works:
+ -  "Read" till input valid positive Integer;
+ -  Get first N count of Primes;
+ -  Generate Matrix and keep all data;
+ -  Print data from Matrix;
+
 ## App has 2 versions:
  - [v 1.0](https://github.com/knaevKMK/Elando/tree/v_1.0): app read N number, get first N count of Primes, generate Matrix and print it;
  - [v 2.0](https://github.com/knaevKMK/Elando/tree/v_2.0): app read N number, get first N count of Primes and print result by Matrix model as example output.
