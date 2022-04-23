@@ -9,11 +9,11 @@ N = 4
 ```
 #### Example output:
 ```
-   | 2  | 3  | 5  | 7  
-2  | 4  | 6  | 10 | 14 
-3  | 6  | 9  | 15 | 21 
-5  | 10 | 15 | 25 | 35 
-7  | 14 | 21 | 35 | 49 
+Table | Table 2 | Table 3 | Table 5  | Table 7  
+Table 2  | Table 4  | Table 6  | Table 10 | Table 14 
+Table 3  | Table 6  | Table 9  | Table 15 | Table 21 
+Table 5  | Table 10 | Table 15 | Table 25 | Table 35 
+Table 7  | Table 14 | Table 21 | Table 35 | Table 49 
 ```
 ---
 <br/>
