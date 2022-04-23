@@ -2,31 +2,27 @@
 {
     public class MultiplicationTableGenerator
     {
-        public static long[,] Generate(long[] nums)
+        public static void Generate(long[] nums)
         {
-            int length = nums.Length + 1;
-            var result = new long[length, length];
+            Console.Write($"\nResult is:\n\n\t");
 
-            GenerateRow(ref result, ref nums, 0, 1);
+            PrintRow(ref nums, 1);
 
-            for (int row = 1; row < length; row++)
+            for (int row = 0; row < nums.Length; row++)
             {
-                var multiplyer = nums[row - 1];
-                result[row, 0] = multiplyer;
-
-                GenerateRow(ref result, ref nums, row, multiplyer);
-
+                Console.Write($"{nums[row]}\t");
+                PrintRow(ref nums, nums[row]);
+            
             }
-
-            return result;
         }
 
-        private static void GenerateRow(ref long[,] result, ref long[] nums, int row, long multiplyer)
+        private static void PrintRow(ref long[] nums, long multiplyer)
         {
-            for (int col = 1; col < nums.Length + 1; col++)
+            for (int col = 0; col < nums.Length; col++)
             {
-                result[row, col] = nums[col - 1] * multiplyer;
+                Console.Write($"{ nums[col] * multiplyer}\t");
             }
+            Console.Write("\n");
         }
     }
 }

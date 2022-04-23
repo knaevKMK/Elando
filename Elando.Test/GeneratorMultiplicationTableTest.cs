@@ -1,6 +1,7 @@
 ﻿namespace Elando.Test
 {
     using System;
+    using System.IO;
 
     using Generator;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -8,50 +9,32 @@
     [TestClass]
     public class GeneratorMultiplicationTableTest
     {
-        private readonly MultiplicationTableGenerator multiplicationTabelGenerator = new();
-
         [TestMethod]
-        [DataRow(new long[] { 0, 0 }, "result1")]
-        [DataRow(new long[] { -2, -7 }, "result2")]
-        [DataRow(new long[] { 0, -2, 5 }, "result3")]
-        [DataRow(new long[] { 2, 3, 5, 7 }, "result4")]
-        public void Generate_InputValidNumbers_Return_ValidResult(long[] input, string result)
+        [DataRow(new long[] { 0, 0 }, "\nResult is:\n\n\t0\t0\t\n0\t0\t0\t\n0\t0\t0\t\n")]
+        [DataRow(new long[] { -2, 5,0 }, "\nResult is:\n\n\t-2\t5\t0\t\n-2\t4\t-10\t0\t\n5\t-10\t25\t0\t\n0\t0\t0\t0\t\n")]
+        [DataRow(new long[] { 2, 3, 5, 7 }, "\nResult is:\n\n\t2\t3\t5\t7\t\n2\t4\t6\t10\t14\t\n3\t6\t9\t15\t21\t\n5\t10\t15\t25\t35\t\n7\t14\t21\t35\t49\t\n")]
+        public void Generate_InputValidNumbers_Return_ValidResult(long[] input, string expectedResult)
         {
-            var testResult = multiplicationTabelGenerator.Generate(input);
-            var expectedResult = getResult(result);
-            CollectionAssert.AreEqual(testResult, expectedResult);
-        }
 
-        private long[,] getResult(string result)
-        {
-            return result switch
-            {
-                "result1" => new long[,] { { 0, 0, 0, }, { 0, 0, 0, }, { 0, 0, 0, } },
-                "result2" => new long[,] { { 0, -2, -7 }, { -2, 4, 14 }, { -7, 14, 49 } },
-                "result3" => new long[,] { { 0, 0, -2, 5 }, { 0, 0, 0, 0 }, { -2, 0, 4, -10 }, { 5, 0, -10, 25 } },
-                "result4" => new long[,] { { 0, 2, 3, 5, 7 }, { 2, 4, 6, 10, 14 }, { 3, 6, 9, 15, 21 }, { 5, 10, 15, 25, 35 }, { 7, 14, 21, 35, 49 } },
-                _ => new long[,] { { 0 } },
-            };
-        }
+            var stringWriter = new StringWriter();
+            Console.SetOut(stringWriter);
 
-        [TestMethod]
-        [DataRow(new long[] { 0, 0, 0 })]
-        [DataRow(new long[] { -2, -3, -5, -7 })]
-        [DataRow(new long[] { 1, 4, 6, 8 })]
-        [DataRow(new long[] { 2, 3, 5, 7, 11, 13, 17 })]
-        public void Generate_InputValidNumbers_SetValidMatrixFormat(long[] input)
-        {
-            var result = multiplicationTabelGenerator.Generate(input);
-            Assert.IsInstanceOfType(result, typeof(long[,]));
-            Assert.IsTrue(result.Length == Math.Pow((input.Length + 1), 2));
+            MultiplicationTableGenerator.Generate(input);
+
+            var printResult = stringWriter.ToString();
+            Assert.AreEqual(expectedResult, printResult);
         }
 
         [TestMethod]
         public void Generate_InputEmptyPrimes_Return_EmptyMatrix()
         {
-            var result = multiplicationTabelGenerator.Generate(Array.Empty<long>());
-            Assert.IsInstanceOfType(result, typeof(long[,]));
-            Assert.IsTrue(result.Length == 1);
+            var stringWriter = new StringWriter();
+            Console.SetOut(stringWriter);
+
+            MultiplicationTableGenerator.Generate(Array.Empty<long>());
+            string expectedResult = "\nResult is:\n\n\t\n";
+            string printResult = stringWriter.ToString();
+            Assert.AreEqual(expectedResult, printResult);
         }
     }
 }

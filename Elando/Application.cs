@@ -6,7 +6,6 @@
     public class Application
     {
         private readonly AppConsole console;
-   
 
         public Application()
         {
@@ -18,9 +17,7 @@
             int n = console.ReadNum();
 
             var primeNUmbers = NumbersGenerator.GeneratePrimes(n);
-            var matrix = MultiplicationTableGenerator.Generate(primeNUmbers);
-
-            AppConsole.PrintMatrix(matrix);
+            MultiplicationTableGenerator.Generate(primeNUmbers);
         }
     }
 }
