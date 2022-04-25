@@ -5,15 +5,23 @@ Applicaiton prints out a multiplication table of the first N prime numbers. The 
 
 #### Example input: 
 ```
-N = 4
+N = 5
 ```
 #### Example output:
 ```
-    2    3      5    7  
-2   4    6     10   14 
-3   6    9     15   21 
-5   10   15    25   35 
-7   14   21    35   49 
+┌────┬────┬────┬────┬────┬─────┐
+│    │ 2  │ 3  │ 5  │ 7  │ 11  │
+├────┼────┼────┼────┼────┼─────┤
+│ 2  │ 4  │ 6  │ 10 │ 14 │ 22  │
+├────┼────┼────┼────┼────┼─────┤
+│ 3  │ 6  │ 9  │ 15 │ 21 │ 33  │
+├────┼────┼────┼────┼────┼─────┤
+│ 5  │ 10 │ 15 │ 25 │ 35 │ 55  │
+├────┼────┼────┼────┼────┼─────┤
+│ 7  │ 14 │ 21 │ 35 │ 49 │ 77  │
+├────┼────┼────┼────┼────┼─────┤
+│ 11 │ 22 │ 33 │ 55 │ 77 │ 121 │
+└────┴────┴────┴────┴────┴─────┘
 ```
 ---
 <br/>
@@ -23,6 +31,9 @@ N = 4
 <br/>
 
 ## App use 
+#### Table Console View
+Use [ConsoleTable](https://github.com/BrunoVT1992/ConsoleTable) code.
+
 #### Prime Algorithm: 
 "...A simple but slow method of checking the primality of a given number N, called trial division, tests whether N is a multiple of any integer between 2 and  Math.Sqrt(N)..."  get from [Wikipedia Prime Number](https://en.wikipedia.org/wiki/Prime_number)
 ``` 
@@ -57,8 +68,7 @@ N = 4
 ## App works:
  -  "Read" till input valid positive Integer;
  -  Get first N count of Primes;
- -  Generate Matrix and keep all data;
- -  Print data from Matrix;
+ -  Print table view result by Matrix model as example output;
 ---
  <br/>
 <div align="right">
