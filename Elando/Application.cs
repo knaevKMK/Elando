@@ -6,6 +6,7 @@
     public class Application
     {
         private readonly AppConsole console;
+      
 
         public Application()
         {
