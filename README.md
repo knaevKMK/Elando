@@ -64,7 +64,16 @@ Use [ConsoleTable](https://github.com/BrunoVT1992/ConsoleTable) code.
     <b><a href="#----">↥ back to top</a></b>
 </div>
 <br/>
- 
+
+ ## App Exe:
+ Curent version was buid as .exe file zipped in App_Exe folder.
+---
+<br/>
+<div align="right">
+    <b><a href="#----">↥ back to top</a></b>
+</div>
+<br/>
+
 ## App works:
  -  "Read" till input valid positive Integer;
  -  Get first N count of Primes;
@@ -76,10 +85,12 @@ Use [ConsoleTable](https://github.com/BrunoVT1992/ConsoleTable) code.
 </div>
 <br/>
                                                                                     
-## App has 2 versions:
+## App has 3 versions:
 ---
  - [v 1.0](https://github.com/knaevKMK/Elando/tree/v_1.0): app read N number, get first N count of Primes, generate Matrix and print it;
  - [v 2.0](https://github.com/knaevKMK/Elando/tree/v_2.0): app read N number, get first N count of Primes and print result by Matrix model as example output.
+ - [current v 2.1](https://github.com/knaevKMK/Elando/tree/v_2.1): app read N number, get first N count of Primes and print table-view result by Matrix model as example output.
+
 ---
 <br/>
 <div align="right">
