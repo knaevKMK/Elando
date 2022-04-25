@@ -10,10 +10,10 @@
     public class GeneratorMultiplicationTableTest
     {
         [TestMethod]
-        [DataRow(new long[] { 0, 0 }, "\nResult is:\n\n\t0\t0\t\n0\t0\t0\t\n0\t0\t0\t\n")]
-        [DataRow(new long[] { -2, 5,0 }, "\nResult is:\n\n\t-2\t5\t0\t\n-2\t4\t-10\t0\t\n5\t-10\t25\t0\t\n0\t0\t0\t0\t\n")]
-        [DataRow(new long[] { 2, 3, 5, 7 }, "\nResult is:\n\n\t2\t3\t5\t7\t\n2\t4\t6\t10\t14\t\n3\t6\t9\t15\t21\t\n5\t10\t15\t25\t35\t\n7\t14\t21\t35\t49\t\n")]
-        public void Generate_InputValidNumbers_Return_ValidResult(long[] input, string expectedResult)
+        [DataRow(new long[] { 0, 0 }, "result1")]
+        [DataRow(new long[] { -2, 5, 0 }, "result2")]
+        [DataRow(new long[] { 2, 3, 5, 7 }, "result3")]
+        public void Generate_InputValidNumbers_Return_ValidResult(long[] input, string result)
         {
 
             var stringWriter = new StringWriter();
@@ -22,7 +22,7 @@
             MultiplicationTableGenerator.Generate(input);
 
             var printResult = stringWriter.ToString();
-            Assert.AreEqual(expectedResult, printResult);
+            Assert.AreEqual(GetResult(result), printResult);
         }
 
         [TestMethod]
@@ -32,9 +32,20 @@
             Console.SetOut(stringWriter);
 
             MultiplicationTableGenerator.Generate(Array.Empty<long>());
-            string expectedResult = "\nResult is:\n\n\t\n";
+
             string printResult = stringWriter.ToString();
-            Assert.AreEqual(expectedResult, printResult);
+            Assert.AreEqual(GetResult("empty"), printResult);
+        }
+
+        private static string GetResult(string result)
+        {
+            switch (result)
+            {
+                case "result1": return $"┌───┬───┬───┐{Environment.NewLine}│   │ 0 │ 0 │{Environment.NewLine}├───┼───┼───┤{Environment.NewLine}│ 0 │ 0 │ 0 │{ Environment.NewLine}├───┼───┼───┤{Environment.NewLine}│ 0 │ 0 │ 0 │{Environment.NewLine }└───┴───┴───┘{Environment.NewLine}{Environment.NewLine}";
+                case "result2": return $"┌────┬─────┬─────┬───┐{Environment.NewLine}│    │ -2  │ 5   │ 0 │{Environment.NewLine}├────┼─────┼─────┼───┤{Environment.NewLine}│ -2 │ 4   │ -10 │ 0 │{ Environment.NewLine}├────┼─────┼─────┼───┤{Environment.NewLine}│ 5  │ -10 │ 25  │ 0 │{Environment.NewLine }├────┼─────┼─────┼───┤{Environment.NewLine}│ 0  │ 0   │ 0   │ 0 │{Environment.NewLine }└────┴─────┴─────┴───┘{Environment.NewLine}{Environment.NewLine}";
+                case "result3": return $"┌───┬────┬────┬────┬────┐{Environment.NewLine}│   │ 2  │ 3  │ 5  │ 7  │{Environment.NewLine}├───┼────┼────┼────┼────┤{Environment.NewLine}│ 2 │ 4  │ 6  │ 10 │ 14 │{ Environment.NewLine}├───┼────┼────┼────┼────┤{Environment.NewLine}│ 3 │ 6  │ 9  │ 15 │ 21 │{Environment.NewLine }├───┼────┼────┼────┼────┤{Environment.NewLine}│ 5 │ 10 │ 15 │ 25 │ 35 │{Environment.NewLine}├───┼────┼────┼────┼────┤{Environment.NewLine}│ 7 │ 14 │ 21 │ 35 │ 49 │{Environment.NewLine}└───┴────┴────┴────┴────┘{Environment.NewLine}{Environment.NewLine}";
+                default: return $"┌──┐{Environment.NewLine}│  │{Environment.NewLine}└──┘{Environment.NewLine}{Environment.NewLine}";
+            }
         }
     }
 }
