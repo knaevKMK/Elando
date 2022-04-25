@@ -31,6 +31,9 @@ N = 5
 <br/>
 
 ## App use 
+#### Table Console View
+Use [ConsoleTable](https://github.com/BrunoVT1992/ConsoleTable) code.
+
 #### Prime Algorithm: 
 "...A simple but slow method of checking the primality of a given number N, called trial division, tests whether N is a multiple of any integer between 2 and  Math.Sqrt(N)..."  get from [Wikipedia Prime Number](https://en.wikipedia.org/wiki/Prime_number)
 ``` 
