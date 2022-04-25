@@ -6,6 +6,7 @@
     using Generator;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+    using static Out.OutResult;
     [TestClass]
     public class GeneratorMultiplicationTableTest
     {
@@ -37,15 +38,6 @@
             Assert.AreEqual(GetResult("empty"), printResult);
         }
 
-        private static string GetResult(string result)
-        {
-            switch (result)
-            {
-                case "result1": return $"┌───┬───┬───┐{Environment.NewLine}│   │ 0 │ 0 │{Environment.NewLine}├───┼───┼───┤{Environment.NewLine}│ 0 │ 0 │ 0 │{ Environment.NewLine}├───┼───┼───┤{Environment.NewLine}│ 0 │ 0 │ 0 │{Environment.NewLine }└───┴───┴───┘{Environment.NewLine}{Environment.NewLine}";
-                case "result2": return $"┌────┬─────┬─────┬───┐{Environment.NewLine}│    │ -2  │ 5   │ 0 │{Environment.NewLine}├────┼─────┼─────┼───┤{Environment.NewLine}│ -2 │ 4   │ -10 │ 0 │{ Environment.NewLine}├────┼─────┼─────┼───┤{Environment.NewLine}│ 5  │ -10 │ 25  │ 0 │{Environment.NewLine }├────┼─────┼─────┼───┤{Environment.NewLine}│ 0  │ 0   │ 0   │ 0 │{Environment.NewLine }└────┴─────┴─────┴───┘{Environment.NewLine}{Environment.NewLine}";
-                case "result3": return $"┌───┬────┬────┬────┬────┐{Environment.NewLine}│   │ 2  │ 3  │ 5  │ 7  │{Environment.NewLine}├───┼────┼────┼────┼────┤{Environment.NewLine}│ 2 │ 4  │ 6  │ 10 │ 14 │{ Environment.NewLine}├───┼────┼────┼────┼────┤{Environment.NewLine}│ 3 │ 6  │ 9  │ 15 │ 21 │{Environment.NewLine }├───┼────┼────┼────┼────┤{Environment.NewLine}│ 5 │ 10 │ 15 │ 25 │ 35 │{Environment.NewLine}├───┼────┼────┼────┼────┤{Environment.NewLine}│ 7 │ 14 │ 21 │ 35 │ 49 │{Environment.NewLine}└───┴────┴────┴────┴────┘{Environment.NewLine}{Environment.NewLine}";
-                default: return $"┌──┐{Environment.NewLine}│  │{Environment.NewLine}└──┘{Environment.NewLine}{Environment.NewLine}";
-            }
-        }
+       
     }
 }

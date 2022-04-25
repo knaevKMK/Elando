@@ -5,6 +5,8 @@ namespace Elando.Test
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+    using static Out.OutResult;
+
     [TestClass]
     public class ApplicaitonTest
     {
@@ -21,12 +23,12 @@ namespace Elando.Test
             Console.SetOut(stringWriter);
             //TODO recurse => input= null => throw 
             //real executing does not throw if insert invalid data
-            Assert.ThrowsException<NullReferenceException>(() => app.Run());
+           Assert.ThrowsException<NullReferenceException>(() => app.Run());
         }
 
         [TestMethod]
-        [DataRow("2", "Insert valid positive number: \nResult is:\n\n\t2\t3\t\n2\t4\t6\t\n3\t6\t9\t\n")]
-        [DataRow("3", "Insert valid positive number: \nResult is:\n\n\t2\t3\t5\t\n2\t4\t6\t10\t\n3\t6\t9\t15\t\n5\t10\t15\t25\t\n")]
+        [DataRow("2", "result4")]
+        [DataRow("3", "result5")]
         public void Read_ValidInput_WriteResult(string input, string result)
         {
             Console.SetIn(new StringReader(input));
@@ -35,7 +37,7 @@ namespace Elando.Test
 
             app.Run();
             var printResult = stringWriter.ToString();
-            Assert.AreEqual(result, printResult);
+            Assert.AreEqual(GetResult(result), printResult);
         }
     }
 }
