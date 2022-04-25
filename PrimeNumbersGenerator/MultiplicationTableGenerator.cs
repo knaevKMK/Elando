@@ -1,25 +1,30 @@
-﻿namespace Generator
+﻿using IO;
+
+namespace Generator
 {
     public class MultiplicationTableGenerator
     {
-        public long[,] Generate(long[] nums)
+        public static void Generate(long[] nums)
         {
-            int length = nums.Length + 1;
-            var result = new long[length, length];
+            var table = new ConsoleTable();
 
-            for (int col = 1; col < length; col++)
+            table.SetHeaders(PrintRow(ref nums, 1));
+
+            for (int row = 0; row < nums.Length; row++)
             {
-                result[0, col] = nums[col-1];
+                table.AddRow(PrintRow(ref nums, nums[row]));
             }
+            Console.WriteLine(table.ToString());
+        }
 
-            for (int row = 1; row < length; row++)
+        private static string[] PrintRow(ref long[] nums, long multiplyer)
+        {
+            var result = new string[nums.Length + 1];
+            result[0] = multiplyer == 1 ? "" : multiplyer.ToString();
+
+            for (int col = 1; col < nums.Length + 1; col++)
             {
-                var index = nums[row-1];
-                result[row, 0] = index;
-                for (int col = 1; col < length; col++)
-                {
-                    result[row, col] = nums[col-1] * index;
-                }
+                result[col] = ($"{ nums[col - 1] * multiplyer}");
             }
 
             return result;

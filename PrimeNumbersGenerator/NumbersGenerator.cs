@@ -2,14 +2,14 @@
 {
     public class NumbersGenerator
     {
-        public long[] Generate(int Length)
+        public static long[] GeneratePrimes(int Length)
         {
             var result = new long[Length];
             int index = 0;
             long checkNum = 2;
             while (index < Length)
             {
-                if (isPrime(checkNum))
+                if (IsPrime(checkNum))
                 {
                     result[index++] = checkNum;
                 }
@@ -18,7 +18,7 @@
             return result;
         }
 
-        private bool isPrime(long num)
+        private static bool IsPrime(long num)
         {
             bool isPrime = true;
             for (int i = 2; i <= Math.Sqrt(num); i++)
